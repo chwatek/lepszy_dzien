@@ -1,67 +1,54 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lepszy Dzień</title>
+  <meta charset="UTF-8">
+  <title>Lepszy dzień</title>
   <style>
     body {
       margin: 0;
+      background-color: #6A0DAD; /* szafranowy fiolet */
       height: 100vh;
-      background-color: #800080; /* szafranowy fiolet */
-      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       font-family: sans-serif;
+      position: relative;
     }
 
     .gold-bar {
       position: absolute;
       top: 25%;
-      left: 0;
       width: 100%;
-      height: 10px;
-      background-color: gold;
+      height: 75px; /* około 2cm */
+      background-color: #2f1c0e; /* ciemny brąz, podobny do przycisku */
     }
 
-    .button-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .fun-button {
+    button {
       width: 5cm;
       height: 3cm;
-      font-size: 1.2rem;
-      background-color: white;
-      border: 2px solid gold;
-      border-radius: 8px;
+      background: url('lepszy_dzien_button.png') no-repeat center/contain;
+      border: none;
       cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .fun-button:hover {
-      background-color: #f7f7f7;
     }
   </style>
 </head>
 <body>
   <div class="gold-bar"></div>
-  <div class="button-container">
-    <button class="fun-button" onclick="openFunnyAnimal()">lepszy dzień</button>
-  </div>
+  <button onclick="openRandomImage()"></button>
 
   <script>
-    function openFunnyAnimal() {
-      const urls = [
-        "https://i.imgur.com/5cZVdBn.jpg",
-        "https://i.imgur.com/jY9lP4n.jpg",
-        "https://i.imgur.com/E1pVYcM.jpg",
-        "https://i.imgur.com/6eFp4wS.jpeg",
-        "https://i.imgur.com/GL4QKqA.jpeg"
-      ];
-      const randomUrl = urls[Math.floor(Math.random() * urls.length)];
-      window.open(randomUrl, "_blank");
+    const images = [
+      'zwierzaki/kot1.jpg',
+      'zwierzaki/pies1.jpg',
+      'zwierzaki/kot2.jpg',
+      'zwierzaki/pies2.jpg'
+    ];
+
+    function openRandomImage() {
+      const randomIndex = Math.floor(Math.random() * images.length);
+      const imageUrl = images[randomIndex];
+      window.open(imageUrl, '_blank');
     }
   </script>
 </body>
